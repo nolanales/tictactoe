@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 def create_empty_2d_array(rows, columns):
@@ -91,7 +91,10 @@ def check_win(board, exesandos):
 #         will check for board[first row][last column of the first row -1 - the index (starting at 0)]
 #         if (board[i][len(board[0] - 1 - i)] == exesandos):
 #             return True
-        if all(board[i][i] == exesandos for i in range(min(len(board), len(board[0])))) or                 all(board[i][len(board[0]) - 1 - i] == exesandos for i in range(min(len(board), len(board[0])))):
+        if all(board[i][i] == exesandos for i in range(min(len(board), len(board[0])))):
+            return True
+    
+        if (all(board[i][len(board[0]) - 1 - i] == exesandos for i in range(min(len(board), len(board[0]))))):
             return True
 
         return False
