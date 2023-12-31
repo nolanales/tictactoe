@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[18]:
+# In[2]:
 
 
 def create_empty_2d_array(rows, columns):
@@ -29,11 +29,14 @@ def print_board(board):
     
 def is_board_full(board):
     # This fus. will return TRUE if all cells on the board are full. We can check this fus. after every turn
-    for row in board:
-        for cell in row:
-            if cell == " ":
-                return False
-    return True
+# It follows this logic:
+#     for row in board:
+#         for cell in row:
+#             if cell == " ":
+#                 return False
+#    return True
+    return all(cell != ' ' for row in board for cell in row)
+
     
 def make_move(board, row, col, exesandos):
     # fus. will return true if the move executes correctly, or false if it does not
@@ -57,9 +60,9 @@ def check_win(board, exesandos):
 #         for cell in row:
 #             if (cell == exesandos):
 #                 return True
-    for row in board:
-        if all(cell == exesandos for cell in row):
-            return True
+        for row in board:
+            if all(cell == exesandos for cell in row):
+                return True
     
     # next up: checking columns
         # len(board[0]) = the number of columns, since board[0] gives the array that makes up the first row
@@ -70,9 +73,9 @@ def check_win(board, exesandos):
 #         for row in range(len(board)):
 #             if (board[row][col] == exesandos):
 #                 return True
-    for col in range(len(board[0])):
-        if all(board[row][col] == exesandos for row in range(len(board))):
-            return True    
+        for col in range(len(board[0])):
+            if all(board[row][col] == exesandos for row in range(len(board))):
+                return True    
     
     # finally: checking diagonals
     # first checking normal diagonal
@@ -88,10 +91,10 @@ def check_win(board, exesandos):
 #         will check for board[first row][last column of the first row -1 - the index (starting at 0)]
 #         if (board[i][len(board[0] - 1 - i)] == exesandos):
 #             return True
-    if all(board[i][i] == exesandos for i in range(min(len(board), len(board[0])))) or             all(board[i][len(board[0]) - 1 - i] == exesandos for i in range(min(len(board), len(board[0])))):
-        return True
+        if all(board[i][i] == exesandos for i in range(min(len(board), len(board[0])))) or                 all(board[i][len(board[0]) - 1 - i] == exesandos for i in range(min(len(board), len(board[0])))):
+            return True
 
-    return False
+        return False
     
 def main():
     # get number of desired rows and columns
