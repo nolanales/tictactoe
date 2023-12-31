@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 def create_empty_2d_array(rows, columns):
@@ -25,7 +25,7 @@ def print_board(board):
     for i in board:
         print(" | ".join(i))
         # trying to make the dashes scale with the board size (so we can expand this to a bigger board)
-        print("-" * (4 * len(i) - 1))
+        print("-" * (4 * len(i)))
     
 def is_board_full(board):
     # This fus. will return TRUE if all cells on the board are full. We can check this fus. after every turn
@@ -130,10 +130,12 @@ def main():
                     print_board(board)
                     print(f"Player {current_player} wins!")
                     game_over = True
+                # now check if the board is full
                 elif is_board_full(board):
                     print_board(board)
                     print("It's a tie!")
                     game_over = True
+                # time for the next move!
                 else:
                     # switch players
                     if current_player == "X":
