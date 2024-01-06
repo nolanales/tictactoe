@@ -78,7 +78,10 @@ def make_move(board, row, column, diag, anti_diag, r, c, exesandos):
     return False
 
 def check_win(board, row, column, diag, anti_diag, r, c):
-    #     board_size = len(board[0])
+
+    # Below this line is my second attempt at this fus.
+# -----------------------------------------------------------------------
+#     board_size = len(board[0])
 #     row = [0] * board_size
 #     column = [0] * board_size
 #     diag = [0] * board_size
@@ -102,17 +105,11 @@ def check_win(board, row, column, diag, anti_diag, r, c):
 #     else:
 #         return False
     
-    
-    
-    # The Python all() fus. is pretty cool. It checks the condition to be true of each cell!
-    # fus. to check if there is a win after every turn
-    # will have to check each row, then each column, then each diagonal to meet all possible conditions
-    
-    
-    
-    
-    
-    
+    # Below this line is my first attempt at this fus. 
+# ----------------------------------------------------------------------------------------    
+# The Python all() fus. is pretty cool. It checks the condition to be true of each cell!
+# fus. to check if there is a win after every turn
+# will have to check each row, then each column, then each diagonal to meet all possible conditions
     
     # first up: checking rows
 # The following logic is in place in the cleaned-up one line code below:
@@ -158,6 +155,13 @@ def check_win(board, row, column, diag, anti_diag, r, c):
             #return True
 
         #return False
+    
+ 
+
+
+    # Below this line is the final implementation of this fus.
+#-------------------------------------------------------------------------------------
+
     board_size = len(board)
 
     if abs(row[r]) == board_size or abs(column[c]) == board_size or abs(diag[r]) == board_size or abs(anti_diag[r]) == board_size:
